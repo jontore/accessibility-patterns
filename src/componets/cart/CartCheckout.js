@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { useCart } from './CartContext'
 
 function CartCheckout() {
   const [ list ] = useCart()
-  console.log('------', list);
+  const totalPrice = list.reduce((sum, item) => {
+    return sum + item.price;
+  }, 0);
   return (
     <> 
       <h2>Checkout</h2>
@@ -12,11 +15,14 @@ function CartCheckout() {
           return (
           <li key={`checkout-cart-${i.id}`}>
             <h2>{i.name}</h2>
-            <p>{i.price}</p>
+            <p>Price: {i.price}</p>
           </li>
           );
         })}
       </ul>
+      To pay{totalPrice}
+
+      <Link to="/payment/contact">Pay</Link>
     </>
   );
 }

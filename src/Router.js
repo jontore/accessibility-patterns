@@ -7,7 +7,8 @@ import Overview from './componets/Overview';
 import Item from './componets/Item';
 import NotFound from './componets/Notfound';
 import Cart from './componets/cart/Cart';
-import CartCheckout from './componets/cart/CartCheckout';
+import Checkout from './componets/Checkout';
+import Payment from './componets/Payment';
 
 function RouteComponent() {
   return (
@@ -17,7 +18,8 @@ function RouteComponent() {
           <Route path="/" exact component={Overview} />
           <Route path="/item/:id" exact component={Item} />
           <Route path="/404" exact component={NotFound} />
-          <Route path="/checkout" exact component={CartCheckout} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/payment" component={Payment} />
       </Router>
     </CartProvider>
   );

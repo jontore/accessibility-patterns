@@ -26,7 +26,7 @@ class Overview extends React.Component {
   render() {
     return (
       <>
-        <h2>List</h2>
+        <h2>Shoes:</h2>
         <ul>
           {this.state.items.map(item => <OverviewItem item={item} />)}
         </ul>
