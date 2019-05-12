@@ -17,7 +17,7 @@ class Payment extends React.Component {
       city: '',
       zipcode: '',
       country: '',
-      creditcartnumber: '',
+      creditcardnumber: '',
       month: '',
       year: '',
       cvc: '',
@@ -25,6 +25,7 @@ class Payment extends React.Component {
     }
 
     this.updateData = this.updateData.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   updateData(key, value) {
@@ -33,14 +34,116 @@ class Payment extends React.Component {
     this.setState(o);
   }
 
+  validate(keys, route) {
+    let error = {};
+    keys.map(key => {
+      error = {
+        ...error,
+        ...this.validateData(key, this.state[key])
+      };
+    });
+
+    this.setState({
+      error: error,
+    });
+
+    if (Object.keys(error).length === 0) {
+      this.props.history.push(route);
+    }
+  }
+
+  validateData(key, value) {
+    switch(key) {
+      case 'zipcode':
+      case 'creditcardnumber':
+      case 'month':
+      case 'year':
+      case 'cvc':
+      const numberError = this.validateNumber(key, value);
+        if (numberError) {
+          return numberError;
+        }
+        break;
+      case 'email': 
+        const emailError = this.validateEmail(key, value);
+        if (emailError) {
+          return emailError;
+        }
+        break;
+      default: 
+        const requiredError = this.validateRequire(key, value);
+        if (requiredError) {
+          return requiredError;
+        }
+        break;
+        
+    }
+
+    return null;
+  }
+
+  validateNumber(key, value) {
+    const error = {};
+    try {
+      const valueNum = parseInt(value, 10);
+      if (valueNum === NaN || value.length === 0) {
+        error[key] = 'Needs to be a valid number';
+        return error;
+      }
+      return null;
+    } catch(e) {
+      error[key] = 'Needs to be a valid number';
+      return error;
+    }
+
+    return null;
+  }
+
+  validateRequire(key, value) {
+    const error = {};
+    if(!value || value.length === 0) {
+      error[key] = 'This is required';
+      return error;
+    }
+  }
+
+  validateEmail(key, value) {
+    const error = {};
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const valid = re.test(String(value).toLowerCase());
+    if (!valid) {
+      error[key] = 'The email address is invalid';
+      return error;
+    }
+  }
+
   render() {
     return (
       <>
-        {JSON.stringify(this.state)}
-        <Route path={`${this.props.match.path}/contact`} render={rProps => (<Contact {...rProps} {...this.state} updateData={this.updateData} />)} exact />
-        <Route path={`${this.props.match.path}/address`} exact  render={rProps => (<Address {...rProps} {...this.state} updateData={this.updateData} />)} />
-        <Route path={`${this.props.match.path}/creditcard`} exact  render={rProps => (<CreditCard {...rProps} {...this.state} updateData={this.updateData} />)} />
-        <Route path={`${this.props.match.path}/recipe`} exact render={rProps => (<Recipe {...rProps} {...this.state} updateData={this.updateData} />)} />
+        <Route path={`${this.props.match.path}/contact`} render={rProps => (<Contact 
+          {...rProps}
+          {...this.state}
+          updateData={this.updateData}
+          validate={this.validate}
+        />)} exact />
+        <Route path={`${this.props.match.path}/address`} exact  render={rProps => (<Address 
+          {...rProps}
+          {...this.state}
+          updateData={this.updateData}
+          validate={this.validate}
+        />)} />
+        <Route path={`${this.props.match.path}/creditcard`} exact  render={rProps => (<CreditCard 
+          {...rProps}
+          {...this.state}
+          updateData={this.updateData}
+          validate={this.validate}
+        />)} />
+        <Route path={`${this.props.match.path}/recipe`} exact render={rProps => (<Recipe 
+          {...rProps}
+          {...this.state}
+          updateData={this.updateData}
+          validate={this.validate}
+        />)} />
       </>
     )
   }

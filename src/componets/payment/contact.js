@@ -1,16 +1,15 @@
-import { Link } from 'react-router-dom';
-
 import React from 'react'
 
-function Contact({ email, updateData }) {
+function Contact({ email, updateData, error, validate }) {
   return (
-    <form>
+    <>
       <label>
         Email
         <input type="text" value={email} onChange={(e) => updateData('email', e.target.value)}/>
+        {error.email}
       </label>
-      <Link to="address">Next</Link>
-    </form>
+      <button onClick={() => validate(['email'], 'address')}>Next</button>
+    </>
   );
 }
 
