@@ -6,34 +6,34 @@ function Address(props) {
       <label>
         Firstname
         <input type="text" value={props.firstname} onChange={e => props.updateData('firstname', e.target.value)} />
-        {props.error.firstname}
+        <p className="checkout--error">{props.error.firstname}</p>
       </label>
       <label>
         Lastname
         <input type="text" value={props.lastname} onChange={e => props.updateData('lastname', e.target.value)} />
-        {props.error.lastname}
+        <p className="checkout--error">{props.error.lastname}</p>
       </label>
       <label>
         Adress
         <input type="text" value={props.address} onChange={e => props.updateData('address', e.target.value)} />
-        {props.error.address}
+        <p className="checkout--error">{props.error.address}</p>
       </label>
       <label>
         City
         <input type="text" value={props.city} onChange={e => props.updateData('city', e.target.value)} />
-        {props.error.city}
+        <p className="checkout--error">{props.error.city}</p>
       </label>
       <label>
         Zipcode
         <input type="number" value={props.zipcode}  onChange={e => props.updateData('zipcode', e.target.value)} />
-        {props.error.zipcode}
+        <p className="checkout--error">{props.error.zipcode}</p>
       </label>
       <label>
         Country
         <input type="text" value={props.country} onChange={e => props.updateData('country', e.target.value)} />
-        {props.error.country}
+        <p className="checkout--error">{props.error.country}</p>
       </label>
-      <button onClick={() => props.validate(['firstname', 'lastname', 'address', 'city', 'zipcode', 'country'], 'creditcard')} >Next</button>
+      <button className="button" onClick={() => props.validate(['firstname', 'lastname', 'address', 'city', 'zipcode', 'country'], 'creditcard')} >Next</button>
     </>
   );
 }

@@ -6,24 +6,24 @@ function CreditCard(props) {
       <label>
         Creditcard number:
         <input type="number" value={props.creditcardnumber} onChange={e => props.updateData('creditcardnumber', e.target.value)} />
-        {props.error.creditcardnumber}
+        <p className="checkout--error">{props.error.creditcardnumber}</p>
       </label>
       <label>
         Month:
         <input type="number" value={props.month} onChange={e => props.updateData('month', e.target.value)} />
-        {props.error.month}
+        <p className="checkout--error">{props.error.month}</p>
       </label>
       <label>
         Year:
         <input type="number" value={props.year} onChange={e => props.updateData('year', e.target.value)} />
-        {props.error.year}
+        <p className="checkout--error">{props.error.year}</p>
       </label>
       <label>
         CVC:
         <input type="number" value={props.cvc} onChange={e => props.updateData('cvc', e.target.value)} />
-        {props.error.cvc}
+        <p className="checkout--error">{props.error.cvc}</p>
       </label>
-      <button onClick={() => props.validate(['creditcardnumber', 'month', 'year', 'cvc'], 'recipe')}>Next</button>
+      <button className="button" onClick={() => props.validate(['creditcardnumber', 'month', 'year', 'cvc'], 'recipe')}>Next</button>
     </>
   )
 }

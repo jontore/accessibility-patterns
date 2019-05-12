@@ -29,16 +29,19 @@ class Item extends React.Component {
 
     const { name, image, description, price } = this.state.item;
     return (
-      <>
+      <section
+        className="item"
+      >
         <h2>{name}</h2>
         <img
+          className="item--image"
           src={`http://localhost:3000/images/${image.id}`}
           alt={image.alt}
         />
         <p>{description}</p>
         <p>Price: {price}</p>
         <AddToCart item={this.state.item} />
-      </>
+      </section>
     );
   }
 }

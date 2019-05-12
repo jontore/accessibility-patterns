@@ -1,6 +1,121 @@
-.App {
+@font-face {
+  font-family: "aasheim";
+  src: url("https://jontore.github.io/aasheim/aasheim.woff");
+}
+
+body {
+  font-family: 'futura';
+}
+
+h1, h2, h3, h4,
+.app--title
+{
+  font-family: "aasheim";
+  color: black;
+  text-decoration: normal;
+}
+  .App {
   text-align: center;
 }
 
-.App-header {
+a {
+  text-decoration: unset;
+  color: black;
+}
+
+ul, li  {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+}
+
+.itemlist {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav {
+  font-size: 2rem;
+}
+
+.nav ul {
+  margin: 1rem;
+  padding: 0;
+  display: flex;
+}
+
+.nav--item + .nav--item {
+  margin-left: 2rem;
+}
+
+.nav--right {
+  margin-left: auto;
+}
+
+.item {
+}
+
+.item + .item {
+  margin-left: 1em;
+}
+
+.item--image {
+  width: 20vw;
+}
+
+.button {
+  display: block;
+  font-family: 'aasheim';
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.5rem;
+  color: white;
+  background-color: rgb(254,184, 75);
+  border: 0;
+}
+
+.button:hover {
+  cursor: pointer;;
+}
+
+.button__full {
+  width: 100%;
+}
+
+.item:nth-child(3n+1) .button {
+  background-color: rgb(5,77,147);
+}
+
+.item:nth-child(3n+2) .button {
+  background-color: rgb(220,13,59);
+}
+
+.checkout {
+  width: 60vw;
+  margin: 0 20vw;
+}
+
+.checkout--table {
+  width: 100%;
+  margin: auto;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.checkout--cell + .checkout--cell {
+  padding-left: 1rem;
+}
+
+.checkout--total {
+  display: flex;
+  justify-content: flex-end;  
+}
+
+input.checkout {
+  font-size: 1.3rem;
+}
+
+.checkout--error {
+  color: rgb(220,13,59);
 }

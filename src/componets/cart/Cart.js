@@ -4,10 +4,15 @@ import { useCart } from './CartContext'
 
 function CartDisplay() {
   const [ list ] = useCart()
+
+  const totalCount = list.reduce((sum, item) => {
+    return sum + item.count
+  }, 0);
+
   return (
     <Link to="/checkout">
       <div>
-        Items is cart {list.length}
+        Items in cart {totalCount}
       </div>
     </Link>
   );

@@ -12,9 +12,25 @@ class Overview extends React.Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    const type = this.props.match.params.type;
+    this.setItems(type);
+  }
+  
+  
+  
+  async componentDidUpdate(nextProps) {
+    if (this.props.match.params.type !== 
+      nextProps.match.params.type) {
+        const type = this.props.match.params.type;
+        this.setItems(type);
+    }
+  }
+  
+  
+  async setItems(type) {
     try {
-      const items = await ItemDb.listItems();
+      const items = await ItemDb.listItems(type);
       this.setState({
         items
       });
@@ -27,7 +43,7 @@ class Overview extends React.Component {
     return (
       <>
         <h2>Shoes:</h2>
-        <ul>
+        <ul className="itemlist">
           {this.state.items.map(item => <OverviewItem item={item} />)}
         </ul>
       </>

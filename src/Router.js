@@ -6,16 +6,17 @@ import { CartProvider } from './componets/cart/CartContext';
 import Overview from './componets/Overview';
 import Item from './componets/Item';
 import NotFound from './componets/Notfound';
-import Cart from './componets/cart/Cart';
 import Checkout from './componets/Checkout';
 import Payment from './componets/Payment';
+import Nav from './nav';
 
 function RouteComponent() {
   return (
     <CartProvider >
       <Router>
-          <Cart />
+          <Nav />
           <Route path="/" exact component={Overview} />
+          <Route path="/filter/:type" exact component={Overview} />
           <Route path="/item/:id" exact component={Item} />
           <Route path="/404" exact component={NotFound} />
           <Route path="/checkout" component={Checkout} />

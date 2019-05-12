@@ -14,18 +14,19 @@ function OverviewItem({
     image,
   } = item;
   return (
-    <>
-      <Link to={`item/${id}`}>
+    <li className="item">
+      <Link to={`/item/${id}`}>
         <h3>{name}</h3>
+        <img
+          src={`http://localhost:3000/images/${image.id}`}
+          alt={image.alt}
+          className="item--image"
+          />
+        <p>{description}</p>
+        <p>Price: {price}</p>
+        <AddToCart item={item} />
       </Link>
-      <img
-        src={`http://localhost:3000/images/${image.id}`}
-        alt={image.alt}
-      />
-      <p>{description}</p>
-      <p>Price: {price}</p>
-      <AddToCart item={item} />
-    </>
+    </li>
   )
 }
 

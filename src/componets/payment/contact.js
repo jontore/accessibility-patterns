@@ -6,9 +6,9 @@ function Contact({ email, updateData, error, validate }) {
       <label>
         Email
         <input type="text" value={email} onChange={(e) => updateData('email', e.target.value)}/>
-        {error.email}
+        <p className="checkout--error">{error.email}</p>
       </label>
-      <button onClick={() => validate(['email'], 'address')}>Next</button>
+      <button className="button" onClick={() => validate(['email'], 'address')}>Next</button>
     </>
   );
 }
