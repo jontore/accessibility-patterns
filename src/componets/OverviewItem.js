@@ -16,7 +16,7 @@ function OverviewItem({
   return (
     <li className="item">
       <Link to={`/item/${id}`}>
-        <h3>{name}</h3>
+        <h2>{name}</h2>
         <img
           src={`http://localhost:3000/images/${image.id}`}
           alt={image.alt}

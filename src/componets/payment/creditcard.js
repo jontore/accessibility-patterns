@@ -3,6 +3,7 @@ import React from 'react'
 function CreditCard(props) {
   return (
     <>
+      <h1>Fill in payment detauls:</h1>
       <label>
         Creditcard number:
         <input type="number" value={props.creditcardnumber} onChange={e => props.updateData('creditcardnumber', e.target.value)} />
@@ -23,7 +24,7 @@ function CreditCard(props) {
         <input type="number" value={props.cvc} onChange={e => props.updateData('cvc', e.target.value)} />
         <p className="checkout--error">{props.error.cvc}</p>
       </label>
-      <button className="button" onClick={() => props.validate(['creditcardnumber', 'month', 'year', 'cvc'], 'recipe')}>Next</button>
+      <button className="button" onClick={() => props.validate(['creditcardnumber', 'month', 'year', 'cvc'], 'recipe')}>Pay</button>
     </>
   )
 }

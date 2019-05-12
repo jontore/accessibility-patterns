@@ -3,6 +3,7 @@ import React from 'react'
 function Address(props) {
   return (
     <>
+      <h1>Fill in delivery information:</h1>
       <label>
         Firstname
         <input type="text" value={props.firstname} onChange={e => props.updateData('firstname', e.target.value)} />

@@ -42,7 +42,7 @@ class Overview extends React.Component {
   render() {
     return (
       <>
-        <h2>Shoes:</h2>
+        <h1>Shoes:</h1>
         <ul className="itemlist">
           {this.state.items.map(item => <OverviewItem item={item} />)}
         </ul>
