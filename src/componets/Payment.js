@@ -64,19 +64,19 @@ class Payment extends React.Component {
           return numberError;
         }
         break;
-      case 'email': 
+      case 'email':
         const emailError = this.validateEmail(key, value);
         if (emailError) {
           return emailError;
         }
         break;
-      default: 
+      default:
         const requiredError = this.validateRequire(key, value);
         if (requiredError) {
           return requiredError;
         }
         break;
-        
+
     }
 
     return null;
@@ -120,25 +120,25 @@ class Payment extends React.Component {
   render() {
     return (
       <>
-        <Route path={`${this.props.match.path}/contact`} render={rProps => (<Contact 
+        <Route path={`${this.props.match.path}/contact`} render={rProps => (<Contact
           {...rProps}
           {...this.state}
           updateData={this.updateData}
           validate={this.validate}
         />)} exact />
-        <Route path={`${this.props.match.path}/address`} exact  render={rProps => (<Address 
+        <Route path={`${this.props.match.path}/address`} exact  render={rProps => (<Address
           {...rProps}
           {...this.state}
           updateData={this.updateData}
           validate={this.validate}
         />)} />
-        <Route path={`${this.props.match.path}/creditcard`} exact  render={rProps => (<CreditCard 
+        <Route path={`${this.props.match.path}/creditcard`} exact  render={rProps => (<CreditCard
           {...rProps}
           {...this.state}
           updateData={this.updateData}
           validate={this.validate}
         />)} />
-        <Route path={`${this.props.match.path}/recipe`} exact render={rProps => (<Recipe 
+        <Route path={`${this.props.match.path}/recipe`} exact render={rProps => (<Recipe
           {...rProps}
           {...this.state}
           updateData={this.updateData}

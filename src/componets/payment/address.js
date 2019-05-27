@@ -1,37 +1,39 @@
 import React from 'react'
+import ErrorComponent from './error';
 
 function Address(props) {
   return (
     <>
       <h1>Fill in delivery information:</h1>
-      <label>
+      <ErrorComponent error={props.error} />
+      <label className="checkout--input">
         Firstname
-        <input type="text" value={props.firstname} onChange={e => props.updateData('firstname', e.target.value)} />
+        <input type="text" aria-required="true" value={props.firstname} onChange={e => props.updateData('firstname', e.target.value)} />
         <p className="checkout--error">{props.error.firstname}</p>
       </label>
-      <label>
+      <label className="checkout--input">
         Lastname
-        <input type="text" value={props.lastname} onChange={e => props.updateData('lastname', e.target.value)} />
+        <input type="text" aria-required="true" value={props.lastname} onChange={e => props.updateData('lastname', e.target.value)} />
         <p className="checkout--error">{props.error.lastname}</p>
       </label>
-      <label>
+      <label className="checkout--input">
         Adress
-        <input type="text" value={props.address} onChange={e => props.updateData('address', e.target.value)} />
+        <input type="text" aria-required="true" value={props.address} onChange={e => props.updateData('address', e.target.value)} />
         <p className="checkout--error">{props.error.address}</p>
       </label>
-      <label>
+      <label className="checkout--input">
         City
-        <input type="text" value={props.city} onChange={e => props.updateData('city', e.target.value)} />
+        <input type="text" aria-required="true" value={props.city} onChange={e => props.updateData('city', e.target.value)} />
         <p className="checkout--error">{props.error.city}</p>
       </label>
-      <label>
+      <label className="checkout--input">
         Zipcode
-        <input type="number" value={props.zipcode}  onChange={e => props.updateData('zipcode', e.target.value)} />
+        <input type="number" aria-required="true" value={props.zipcode}  onChange={e => props.updateData('zipcode', e.target.value)} />
         <p className="checkout--error">{props.error.zipcode}</p>
       </label>
-      <label>
+      <label className="checkout--input">
         Country
-        <input type="text" value={props.country} onChange={e => props.updateData('country', e.target.value)} />
+        <input type="text" aria-required="true" value={props.country} onChange={e => props.updateData('country', e.target.value)} />
         <p className="checkout--error">{props.error.country}</p>
       </label>
       <button className="button" onClick={() => props.validate(['firstname', 'lastname', 'address', 'city', 'zipcode', 'country'], 'creditcard')} >Next</button>
