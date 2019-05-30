@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/accessibility-patterns/static/css/main.e918bcd7.chunk.css",
-    "main.js": "/accessibility-patterns/static/js/main.38922432.chunk.js",
-    "main.js.map": "/accessibility-patterns/static/js/main.38922432.chunk.js.map",
+    "main.js": "/accessibility-patterns/static/js/main.71118545.chunk.js",
+    "main.js.map": "/accessibility-patterns/static/js/main.71118545.chunk.js.map",
     "runtime~main.js": "/accessibility-patterns/static/js/runtime~main.c07a0e1f.js",
     "runtime~main.js.map": "/accessibility-patterns/static/js/runtime~main.c07a0e1f.js.map",
     "static/js/2.c7a8a559.chunk.js": "/accessibility-patterns/static/js/2.c7a8a559.chunk.js",
     "static/js/2.c7a8a559.chunk.js.map": "/accessibility-patterns/static/js/2.c7a8a559.chunk.js.map",
     "index.html": "/accessibility-patterns/index.html",
-    "precache-manifest.9c59c4ef92e0ea21a0faf3702482f349.js": "/accessibility-patterns/precache-manifest.9c59c4ef92e0ea21a0faf3702482f349.js",
+    "precache-manifest.350f75ae290b90e1bfe000197eda9929.js": "/accessibility-patterns/precache-manifest.350f75ae290b90e1bfe000197eda9929.js",
     "service-worker.js": "/accessibility-patterns/service-worker.js",
     "static/css/main.e918bcd7.chunk.css.map": "/accessibility-patterns/static/css/main.e918bcd7.chunk.css.map"
   }
