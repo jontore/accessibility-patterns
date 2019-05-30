@@ -26,7 +26,7 @@ function CreditCard(props) {
         <input type="number" aria-required="true" value={props.cvc} onChange={e => props.updateData('cvc', e.target.value)} />
         <p className="checkout--error">{props.error.cvc}</p>
       </label>
-      <button className="button" onClick={() => props.validate(['creditcardnumber', 'month', 'year', 'cvc'], 'recipe')}>Pay</button>
+      <button className="button" onClick={() => props.validate(['creditcardnumber', 'month', 'year', 'cvc'], 'receipt')}>Pay</button>
     </>
   )
 }

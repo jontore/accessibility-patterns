@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import Contact from './payment/contact';
 import Address from './payment/address';
 import CreditCard from './payment/creditcard';
-import Recipe from './payment/recipe';
+import Receipt from './payment/receipt';
 
 class Payment extends React.Component {
   constructor() {
@@ -138,7 +138,7 @@ class Payment extends React.Component {
           updateData={this.updateData}
           validate={this.validate}
         />)} />
-        <Route path={`${this.props.match.path}/recipe`} exact render={rProps => (<Recipe
+        <Route path={`${this.props.match.path}/receipt`} exact render={rProps => (<Receipt
           {...rProps}
           {...this.state}
           updateData={this.updateData}

@@ -7,6 +7,13 @@ body {
   font-family: 'futura';
 }
 
+
+html {
+  --main-color: rgb(220,13,59); 
+  --secondary-color:  rgb(5,77,147);
+  --third-color: rgb(254,184, 75);
+}
+
 h1, h2, h3, h4,
 .app--title
 {
@@ -73,7 +80,7 @@ ul, li  {
   max-width: 20rem;
   padding: 0.5rem;
   color: white;
-  background-color: rgb(254,184, 75);
+  background-color: var(--third-color);
   border: 0;
 }
 
@@ -86,11 +93,11 @@ ul, li  {
 }
 
 .item:nth-child(3n+1) .button {
-  background-color: rgb(5,77,147);
+  background-color: var(--secondary-color);
 }
 
 .item:nth-child(3n+2) .button {
-  background-color: rgb(220,13,59);
+  background-color: var(--main-color);
 }
 
 .checkout {
@@ -114,6 +121,27 @@ ul, li  {
   justify-content: flex-end;  
 }
 
+.checkout--cell--item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.checkout--cell--button {
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 0.1rem solid var(--third-color);
+}
+
+.checkout--cell--button:hover {
+  border-bottom: 0.1rem solid black;
+}
+
+.checkout--cell--button:focus {
+  outline: none;
+  border-bottom: 0.1rem solid var(--secondary-color);
+}
 
 .checkout--input {
   font-size: 1.3rem;
@@ -128,17 +156,18 @@ ul, li  {
 
 .checkout--input input:focus {
   outline: none;
-  border-bottom: 0.2rem solid blue;
+  border-bottom: 0.2rem solid var(--secondary-color);
   font-size: 1.3rem;
 }
 
 .checkout--error {
-  color: rgb(220,13,59);
+  color: var(--main-color);
   font-size: 1rem;
 }
 
 .error-container {
-  background-color: rgba(220,13,59, 0.3);
+  background-color: var(--main-color);
+  opacity: 0.3;
   color: white;
   padding: 0.2rem;
   margin-bottom: 2rem;

@@ -16,4 +16,29 @@ function CartProvider(props) {
   return <CartContext.Provider value={value} {...props} />
 }
 
-export { CartProvider, useCart };
+
+function addToCart(item, list, addToList) {
+  const alreadyInList = list.find(({ id }) => id === item.id);
+  const notMatchList = list.filter(({ id }) => id !== item.id);
+  if (alreadyInList) {
+    alreadyInList.count += 1;
+    addToList(items => [...notMatchList, alreadyInList]);
+  } else {
+    addToList(items => [...items, {...item, count: 1 }]);
+  }
+}
+
+function removeFromCart(item, list, addToList) {
+  const alreadyInList = list.find(({ id }) => id === item.id);
+  const notMatchList = list.filter(({ id }) => id !== item.id);
+  if (alreadyInList) {
+    if (alreadyInList.count === 1) {
+      addToList(items => [...notMatchList]);  
+    } else {
+      alreadyInList.count -= 1;
+      addToList(items => [...notMatchList, alreadyInList]);
+    }
+  }
+}
+
+export { CartProvider, useCart, addToCart, removeFromCart };

@@ -2,7 +2,7 @@ const items = [
   {
     id: 0,
     name: 'Blue shoe',
-    description: 'A nice new blue shoe',
+    description: 'A blue sailor shoe with blue white checked pattern in the back',
     price: 300,
     type: 'shoe',
     image: {
@@ -13,29 +13,29 @@ const items = [
   {
     id: 1,
     name: 'Red shoe',
-    description: 'A nice red blue shoe',
+    description: 'A classic vans shoe in red fabric, with white stiching. Low cut and flexible flat rubber sole.',
     price: 200,
     type: 'shoe',
     image: {
       id: 'red-3.jpg',
-      alt: 'A red shoe with wihet laces',
+      alt: 'A red shoe with white laces',
     }
   },
   {
     id: 2,
     name: 'Yellow shoe',
-    description: 'A nice new yellow shoe',
+    description: 'A classic vans shoe in yellow fabric, with white stiching. Low cut and flexible flat rubber sole.',
     price: 100,
     type: 'shoe',
     image: {
       id: 'yellow-2.jpg',
-      alt: 'A yellow shoe with wihet laces',
+      alt: 'A yellow shoe with white laces',
     }
   },
   {
     id: 3,
     name: 'Blue sock',
-    description: 'A nice new blue sock',
+    description: 'A thin blue sock, with no rubber band',
     price: 300,
     type: 'sock',
     image: {
@@ -46,7 +46,7 @@ const items = [
   {
     id: 4,
     name: 'Red sock',
-    description: 'A nice new blue sock',
+    description: 'a red adidas football sock, with white detials. The sock is of a thick material and goes up to the knee',
     price: 200,
     type: 'sock',
     image: {
@@ -57,7 +57,7 @@ const items = [
   {
     id: 5,
     name: 'Yellow sock',
-    description: 'A nice new blue sock',
+    description: 'A thin yellow sock, with no rubber band',
     price: 100,
     type: 'sock',
     image: {

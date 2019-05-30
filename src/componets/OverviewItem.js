@@ -22,7 +22,6 @@ function OverviewItem({
           alt={image.alt}
           className="item--image"
           />
-        <p>{description}</p>
         <p>Price: {price}</p>
         <AddToCart item={item} />
       </Link>
