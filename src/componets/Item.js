@@ -35,7 +35,7 @@ class Item extends React.Component {
         <h2>{name}</h2>
         <img
           className="item--image"
-          src={`http://localhost:3000/images/${image.id}`}
+          src={`${process.env.PUBLIC_URL}/images/${image.id}`}
           alt={image.alt}
         />
         <p>{description}</p>

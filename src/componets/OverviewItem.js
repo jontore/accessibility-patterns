@@ -18,7 +18,7 @@ function OverviewItem({
       <Link to={`/item/${id}`}>
         <h2>{name}</h2>
         <img
-          src={`http://localhost:3000/images/${image.id}`}
+          src={`${process.env.PUBLIC_URL}/images/${image.id}`}
           alt={image.alt}
           className="item--image"
           />
