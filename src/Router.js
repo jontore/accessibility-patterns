@@ -13,7 +13,7 @@ import Nav from './nav';
 function RouteComponent() {
   return (
     <CartProvider >
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
           <Nav />
           <Route path="/" exact component={Overview} />
           <Route path="/filter/:type" exact component={Overview} />
