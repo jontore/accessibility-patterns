@@ -1,6 +1,7 @@
 import React from 'react'
 
 const CartContext = React.createContext()
+const ReceiptContext = React.createContext()
 
 function useCart() {
   const context = React.useContext(CartContext)
@@ -10,35 +11,57 @@ function useCart() {
   return context
 }
 
+function useReceipt() {
+  const context = React.useContext(ReceiptContext)
+  if (!context) {
+    throw new Error(`useReceipt must be used within a ReceiptProvider`)
+  }
+  return context
+}
+
 function CartProvider(props) {
-  const [list, addToList] = React.useState([])
-  const value = React.useMemo(() => [list, addToList], [list])
+  const [list, setList] = React.useState([])
+  const value = React.useMemo(() => [list, setList], [list])
+
   return <CartContext.Provider value={value} {...props} />
 }
 
+function ReceiptProvider(props) {
+  const [list, setList] = React.useState([])
+  const value = React.useMemo(() => [list, setList], [list])
 
-function addToCart(item, list, addToList) {
+  return <ReceiptContext.Provider value={value} {...props} />
+}
+
+
+
+
+function addToCart(item, list, setList) {
   const alreadyInList = list.find(({ id }) => id === item.id);
   const notMatchList = list.filter(({ id }) => id !== item.id);
   if (alreadyInList) {
     alreadyInList.count += 1;
-    addToList(items => [...notMatchList, alreadyInList]);
+    setList(items => [...notMatchList, alreadyInList]);
   } else {
-    addToList(items => [...items, {...item, count: 1 }]);
+    setList(items => [...items, {...item, count: 1 }]);
   }
 }
 
-function removeFromCart(item, list, addToList) {
+function removeFromCart(item, list, setList) {
   const alreadyInList = list.find(({ id }) => id === item.id);
   const notMatchList = list.filter(({ id }) => id !== item.id);
   if (alreadyInList) {
     if (alreadyInList.count === 1) {
-      addToList(items => [...notMatchList]);  
+      setList(items => [...notMatchList]);  
     } else {
       alreadyInList.count -= 1;
-      addToList(items => [...notMatchList, alreadyInList]);
+      setList(items => [...notMatchList, alreadyInList]);
     }
   }
 }
 
-export { CartProvider, useCart, addToCart, removeFromCart };
+function emtpyCart(setList) {
+  setList(items => []);
+}
+
+export { CartProvider, ReceiptProvider, useCart, useReceipt, addToCart, removeFromCart, emtpyCart };

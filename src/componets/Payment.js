@@ -6,6 +6,8 @@ import Address from './payment/address';
 import CreditCard from './payment/creditcard';
 import Receipt from './payment/receipt';
 
+import { ReceiptProvider } from './cart/CartContext';
+
 class Payment extends React.Component {
   constructor() {
     super();
@@ -50,6 +52,8 @@ class Payment extends React.Component {
     if (Object.keys(error).length === 0) {
       this.props.history.push(route);
     }
+
+    return Object.keys(error).length === 0;
   }
 
   validateData(key, value) {
@@ -102,7 +106,7 @@ class Payment extends React.Component {
   validateRequire(key, value) {
     const error = {};
     if(!value || value.length === 0) {
-      error[key] = 'This is required';
+      error[key] = 'This field is required';
       return error;
     }
   }
@@ -119,7 +123,7 @@ class Payment extends React.Component {
 
   render() {
     return (
-      <>
+      <ReceiptProvider>  
         <Route path={`${this.props.match.path}/contact`} render={rProps => (<Contact
           {...rProps}
           {...this.state}
@@ -144,7 +148,7 @@ class Payment extends React.Component {
           updateData={this.updateData}
           validate={this.validate}
         />)} />
-      </>
+      </ReceiptProvider>
     )
   }
 }

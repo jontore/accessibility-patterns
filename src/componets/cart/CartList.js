@@ -1,10 +1,8 @@
 import React from 'react'
-import { useCart, addToCart, removeFromCart } from './CartContext'
 
-function CartList({ adjustable = true }) {
-  const [ list, addToList ] = useCart();
+function CartList({ adjustable = true, list, add, remove }) {
   const totalPrice = list.reduce((sum, item) => {
-    return sum + item.price;
+    return sum + (item.price * item.count);
   }, 0);
   return (
     <section className="checkout"> 
@@ -24,8 +22,8 @@ function CartList({ adjustable = true }) {
               <td className="checkout--cell">{i.price}</td>
               <td className="checkout--cell">
                 <span className="checkout--cell">{i.count}</span>
-                {adjustable ? <button className="checkout--cell--button" onClick={() => addToCart(i, list, addToList)}>+</button> : null}
-                {adjustable ? <button className="checkout--cell--button" onClick={() => removeFromCart(i, list, addToList)}>-</button> : null}
+                {adjustable ? <button className="checkout--cell--button" onClick={() => add(i)}>+</button> : null}
+                {adjustable ? <button className="checkout--cell--button" onClick={() => remove(i)}>-</button> : null}
               </td>
             </tr>
             );

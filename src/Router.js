@@ -14,7 +14,9 @@ function RouteComponent() {
   return (
     <CartProvider >
       <Router basename={process.env.PUBLIC_URL}>
-          <Nav />
+          <header>
+            <Nav />
+          </header>
           <Route path="/" exact component={Overview} />
           <Route path="/filter/:type" exact component={Overview} />
           <Route path="/item/:id" exact component={Item} />

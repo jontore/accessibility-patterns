@@ -8,7 +8,6 @@ function OverviewItem({
 }) {
   const {
     name,
-    description,
     price,
     id,
     image,

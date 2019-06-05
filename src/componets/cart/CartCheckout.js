@@ -1,21 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useCart } from './CartContext'
+import { useCart, removeFromCart, addToCart } from './CartContext'
 
 import CartList from './CartList';
 
 function CartCheckout() {
-  const [ list ] = useCart()
-  const totalPrice = list.reduce((sum, item) => {
-    return sum + item.price;
-  }, 0);
+  const [ list, setList ] = useCart();
 
   return (
     <>
       <h2>What is in your cart</h2>
       {list.length === 0 ? <p>Your cart is empty</p> :
         <>
-          <CartList />
+          <CartList list={list} add={(i) => addToCart(i, list, setList)} remove={(i) => removeFromCart(i, list, setList)} />
           <Link className="button button__full" to="/payment/contact">go pay</Link>
         </>
       }
