@@ -17,7 +17,7 @@ function Address(props) {
         <p className="checkout--error" id="error-lastname" >{props.error.lastname}</p>
       </label>
       <label className="checkout--input">
-        Adress
+        Address
         <input type="text" aria-required="true" aria-describedby="error-address" value={props.address} onChange={e => props.updateData('address', e.target.value)} />
         <p className="checkout--error" id="error-address" >{props.error.address}</p>
       </label>
