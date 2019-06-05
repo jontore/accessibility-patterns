@@ -22,8 +22,8 @@ function CartList({ adjustable = true, list, add, remove }) {
               <td className="checkout--cell">{i.price}</td>
               <td className="checkout--cell">
                 <span className="checkout--cell">{i.count}</span>
-                {adjustable ? <button className="checkout--cell--button" onClick={() => add(i)}>+</button> : null}
-                {adjustable ? <button className="checkout--cell--button" onClick={() => remove(i)}>-</button> : null}
+                {adjustable ? <button className="checkout--cell--button" aria-label="Add one item" title="Add one item" onClick={() => add(i)}>+</button> : null}
+                {adjustable ? <button className="checkout--cell--button" aria-label="Remove one item" title="Remove one item" onClick={() => remove(i)}>-</button> : null}
               </td>
             </tr>
             );

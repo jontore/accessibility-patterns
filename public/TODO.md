@@ -1,11 +1,10 @@
 TODO
-Buttons are not marked
++ - Buttons needs a description Buttons are not marked
 
 
 
 
 Right an article about what I learnt.
-
 
 
 
