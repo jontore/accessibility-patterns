@@ -22,8 +22,8 @@ function OverviewItem({
           className="item--image"
           />
         <p>Price: {price}</p>
-        <AddToCart item={item} />
       </Link>
+      <AddToCart item={item} />
     </li>
   )
 }

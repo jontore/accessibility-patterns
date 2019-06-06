@@ -31,7 +31,7 @@ function CartList({ adjustable = true, list, add, remove }) {
         </tbody>
       </table>
       <p className="checkout--total">
-        Subtotal: {totalPrice}
+        Total price: {totalPrice}
       </p>
     </section>
   );
