@@ -68,10 +68,15 @@ class Payment extends React.Component {
           return numberError;
         }
         break;
-      case 'email':
-        const emailError = this.validateEmail(key, value);
-        if (emailError) {
-          return emailError;
+      case 'email': {
+          const requiredError = this.validateRequire(key, value);
+          if (requiredError) {
+            return requiredError;
+          }
+          const emailError = this.validateEmail(key, value);
+          if (emailError) {
+            return emailError;
+          }
         }
         break;
       default:
@@ -106,7 +111,7 @@ class Payment extends React.Component {
   validateRequire(key, value) {
     const error = {};
     if(!value || value.length === 0) {
-      error[key] = 'This field is required';
+      error[key] = `A ${key} is required`;
       return error;
     }
   }

@@ -1,6 +1,6 @@
 TODO
 + - Buttons needs a description Buttons are not marked
-
+- Error instructions should be different for when underneath error and when in group
 
 
 
