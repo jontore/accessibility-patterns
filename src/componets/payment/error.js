@@ -10,7 +10,7 @@ function Error({ error }) {
     <section class="error-container" role="alert" aria-relevant="all">
       <h3>Oops you missed some information or something is wrong</h3>
       <p>
-        <ul>
+        <ul className="error-container--list">
           {errorKeys.map(k => 
             <li key={`error-key-${k}`}>
               {error[k]}

@@ -182,6 +182,10 @@ ul, li  {
   font-size: 1.1rem;
 }
 
+.error-container .error-container--list li {
+  display: block;
+}
+
 @media screen and (max-width: 600px) {
 
   .nav ul {

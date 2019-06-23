@@ -7,7 +7,7 @@ function AddToCart({ item }) {
     addToCart(item, list, setList);
     e.preventDefault();
   }
-  return <button className="button" onClick={add}>Add to cart {item.price}</button>
+  return <button className="button" onClick={add}>Add to cart</button>
 }
 
 export default AddToCart;
